@@ -1,0 +1,60 @@
+﻿@using static WebApplication1.Controllers.HomeController
+@model DtoA
+@{
+    ViewData["Title"] = "Test";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Test";
+}
+<h1>@ViewData["Title"]</h1>
+<h1>@Html.Raw(ViewData["Error"])</h1>
+
+<form method="post" asp-action="Test">
+    <p>
+        <label>Id:</label>
+        <input asp-for="Id">
+    </p>
+
+    <hr />
+
+    @foreach (var item in Model.DtoBs)
+    {
+        var ScopeName = "DtoBs";
+        <p>
+            @{
+                var props = item.GetType().GetProperties();
+                foreach (var prop in props)
+                {
+                    if (prop.GetValue(item) != null)
+                    {
+                        if (prop.GetValue(item).GetType().IsArray)
+                        {
+                            var sub_Array = (Array)prop.GetValue(item);
+                            foreach (var sub_item in sub_Array)
+                            {
+                                var sub_props = sub_item.GetType().GetProperties();
+
+                                foreach (var sprop in sub_props)
+                                {
+                                    <label>@($"{ScopeName}[{Array.IndexOf(Model.DtoBs, item)}].{prop.Name}[{Array.IndexOf(sub_Array, sub_item)}].{sprop.Name}"):</label>
+                                    <input name="@($"{ScopeName}[{Array.IndexOf(Model.DtoBs, item)}].{prop.Name}[{Array.IndexOf(sub_Array, sub_item)}].{sprop.Name}")" value="@sprop.GetValue(sub_item)">
+                                }
+                            }
+                        }
+                        else
+                        {
+                            <label>@($"{ScopeName}[{Array.IndexOf(Model.DtoBs, item)}].{prop.Name}"):</label>
+                            <input name="@($"{ScopeName}[{Array.IndexOf(Model.DtoBs, item)}].{prop.Name}")" value="@prop.GetValue(item)">
+                        }
+                    }
+                    <br>
+                }
+            }
+        </p>
+        <hr />
+    }
+
+    <input type="submit" value="Submit" />
+</form>
