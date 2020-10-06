@@ -6562,11 +6562,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "\\\\Mac\\Home\\Documents\\repo\\SolGitLab\\WebApplication1\\WebApplication1.csproj",
+      "projectUniqueName": "\\\\Mac\\Home\\Documents\\repo\\Kingst99GitHub\\DynamicFormPOC\\WebApplication1.csproj",
       "projectName": "WebApplication1",
-      "projectPath": "\\\\Mac\\Home\\Documents\\repo\\SolGitLab\\WebApplication1\\WebApplication1.csproj",
+      "projectPath": "\\\\Mac\\Home\\Documents\\repo\\Kingst99GitHub\\DynamicFormPOC\\WebApplication1.csproj",
       "packagesPath": "C:\\Users\\JackHu_SOL\\.nuget\\packages\\",
-      "outputPath": "\\\\Mac\\Home\\Documents\\repo\\SolGitLab\\WebApplication1\\obj\\",
+      "outputPath": "\\\\Mac\\Home\\Documents\\repo\\Kingst99GitHub\\DynamicFormPOC\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
